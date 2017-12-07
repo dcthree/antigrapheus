@@ -10,10 +10,16 @@ process = ->
   image = document.getElementById('imageUpload').files[0]
   console.log(image)
   Tesseract.recognize(image, $('#language1').val())
-    .progress((message) -> console.log(message))
+    .progress((message) ->
+      console.log(message)
+      $('#progresstext').text(message.status)
+      $('#progress').prop('aria-valuenow',message.progress)
+      $('#progress').prop('style','width: ' + Math.round(message.progress * 100) + '%')
+    )
     .catch((err) -> console.error(err))
     .then((result) ->
       console.log(result)
+      $('#progresstext').text('Done!')
       $('#results').empty().append($('<p>').text(result.text))
       $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
       $('html, body').animate({scrollTop: $("#copy").offset().top},500)
