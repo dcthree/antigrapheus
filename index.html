@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Antigrapheus - Online OCR for Ancient Greek and Latin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <style>
+        </style>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <main role="main">
+          <div class="jumbotron">
+            <div class="container">
+              <h3>Antigrapheus: <small>Online OCR for Ancient Greek and Latin</small></h3>
+              <p>Convert images of documents in Ancient Greek and Latin into text. Right in your browser.</p>
+            </div>
+          </div>
+          <div class="container">
+            <form>
+              <div class="form-group form-row align-items-center">
+                <label for="imageUpload" class="col-auto col-form-label-lg">Upload Image:</label>
+                <div class="col-auto">
+                  <input type="file" accept="image/*" class="form-control-file" id="imageUpload" multiple>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="language1">Primary Document Language:</label>
+                <select class="form-control" id="language1">
+                  <option value="grc">Ancient Greek</option>
+                  <option value="lat">Latin</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-lg btn-primary btn-block" id="process">Process</button>
+            </form>
+          </div>
+          <br/>
+          <div class="container" id="results">
+          </div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js"></script>
+        <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="src/js/antigrapheus.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID.
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        -->
+    </body>
+</html>
