@@ -4,9 +4,12 @@
 result = (ocrRes) ->
   console.log("Result: " + ocrRes)
 
+toggleProcess = ->
+  $('#process').toggleClass('disabled').toggleClass('btn-primary').toggleClass('btn-secondary').prop('disabled',!$('#process').prop('disabled'))
+
 process = ->
   console.log('processing')
-  $('#process').toggleClass('disabled').toggleClass('btn-primary').toggleClass('btn-secondary').prop('disabled',true)
+  toggleProcess()
   image = document.getElementById('imageUpload').files[0]
   console.log(image)
   Tesseract.recognize(image, $('#language1').val())
@@ -21,7 +24,8 @@ process = ->
       console.log(result)
       $('#progresstext').text('Done!')
       $('#results').empty().append($('<p>').text(result.text))
-      $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
+      if $('#copy').prop('disabled')
+        $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
       $('html, body').animate({scrollTop: $("#copy").offset().top},500)
     )
     .finally((resultOrError) -> console.log(resultOrError))
@@ -39,6 +43,9 @@ $(document).ready ->
     $('#copy').tooltip('show')
     setTimeout ( -> $('#copy').tooltip('hide') ), 2000
     e.clearSelection()
+  $('#imageUpload').change ->
+    if $('#process').prop('disabled')
+      toggleProcess()
   $('form').submit (e) ->
     process()
     e.preventDefault()
