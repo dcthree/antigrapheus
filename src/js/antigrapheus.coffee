@@ -16,6 +16,7 @@ process = ->
       console.log(result)
       $('#results').empty().append($('<p>').text(result.text))
       $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
+      $('html, body').animate({scrollTop: $("#copy").offset().top},500)
     )
     .finally((resultOrError) -> console.log(resultOrError))
   return false
