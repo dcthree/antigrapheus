@@ -34,9 +34,9 @@ process = ->
 $(document).ready ->
   console.log('ready')
   window.Tesseract = Tesseract.create({
-    workerPath: '{{ site.url }}/src/js/vendor/tesseract/worker.js',
-    langPath: '{{ site.url }}/lang/'
-    # corePath: '{{ site.url }}/src/js/vendor/tesseract/tesseract.js'
+    workerPath: '{{ site.url }}{{ site.baseurl }}/src/js/vendor/tesseract/worker.js',
+    langPath: '{{ site.url }}{{ site.baseurl }}/lang/'
+    # corePath: '{{ site.url }}{{ site.baseurl }}/src/js/vendor/tesseract/tesseract.js'
   })
   clipboard = new Clipboard('#copy')
   clipboard.on 'success', (e) ->
