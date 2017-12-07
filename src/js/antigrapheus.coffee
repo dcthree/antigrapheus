@@ -15,6 +15,7 @@ process = ->
     .then((result) ->
       console.log(result)
       $('#results').empty().append($('<p>').text(result.text))
+      $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
     )
     .finally((resultOrError) -> console.log(resultOrError))
   return false
@@ -26,6 +27,11 @@ $(document).ready ->
     langPath: '{{ site.url }}/lang/'
     # corePath: '{{ site.url }}/src/js/vendor/tesseract/tesseract.js'
   })
+  clipboard = new Clipboard('#copy')
+  clipboard.on 'success', (e) ->
+    $('#copy').tooltip('show')
+    setTimeout ( -> $('#copy').tooltip('hide') ), 2000
+    e.clearSelection()
   $('form').submit (e) ->
     process()
     e.preventDefault()
