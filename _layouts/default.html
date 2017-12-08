@@ -8,21 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <style>
-					.progress {
-						position: relative;
-					}
-					.progress-bar-title {
-						position: absolute;
-						text-align: center;
-						text-transform: capitalize;
-						/* line-height: 4em;  line-height should be equal to bar height */
-						color: #fff;
-						mix-blend-mode: color-dodge;
-						right: 0;
-						left: 0;
-						top: .5em;
-						overflow: hidden;
-					}
         </style>
     </head>
     <body>
@@ -33,37 +18,12 @@
         <main role="main">
           <div class="jumbotron">
             <div class="container">
-              <h3>Antigrapheus: <small>Online OCR for Ancient Greek and Latin</small></h3>
-              <p>Convert images of print documents in Ancient Greek and Latin into text. Right in your browser. <a href="about.html">Learn more</a>.</p>
+              <h3><a href="{{ site.url }}{{ site.baseurl }}/">Antigrapheus</a>: <small>Online OCR for Ancient Greek and Latin</small></h3>
+              <p>Convert images of print documents in Ancient Greek and Latin into text. Right in your browser.</p>
             </div>
           </div>
           <div class="container">
-            <form>
-              <div class="form-group form-row align-items-center">
-                <label for="imageUpload" class="col-auto col-form-label-lg">Upload Image:</label>
-                <div class="col-auto">
-                  <input type="file" accept="image/*" class="form-control-file" id="imageUpload">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="language1">Primary Document Language:</label>
-                <select class="form-control" id="language1">
-                  <option value="grc">Ancient Greek</option>
-                  <option value="lat">Latin</option>
-                </select>
-              </div>
-              <button type="submit" class="btn-lg btn-secondary btn-block" id="process" disabled>Process</button>
-            </form>
-            <br/>
-            <div class="progress" style="height: 4em;">
-                <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
-                <div id="progresstext" class="progress-bar-title h5"></div>
-            </div>
-            <br/>
-            <button type="button" class="btn-lg btn-outline-secondary btn-block disabled" data-clipboard-target="#results" id="copy" disabled data-trigger="manual" data-placement="bottom" data-toggle="tooltip" title="Copied!">Copy to clipboard</button>
-          </div>
-          <br/>
-          <div class="container" id="results">
+            {{ content }}
           </div>
         </main>
 
@@ -72,7 +32,6 @@
         <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-        <script src="src/js/antigrapheus.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID.
         <script>
