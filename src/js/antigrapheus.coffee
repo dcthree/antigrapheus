@@ -23,7 +23,9 @@ process = ->
     .then((result) ->
       console.log(result)
       $('#progresstext').text('Done!')
-      $('#results').empty().append($('<p>').text(result.text))
+      $('#richtext').empty().append(result.html)
+      $('#plaintext').empty().append($('<p>').text(result.text))
+      $('#results').removeClass('invisible')
       if $('#copy').prop('disabled')
         $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
       $('html, body').animate({scrollTop: $("#copy").offset().top},500)
@@ -38,7 +40,10 @@ $(document).ready ->
     langPath: '{{ site.url }}{{ site.baseurl }}/lang/'
     # corePath: '{{ site.url }}{{ site.baseurl }}/src/js/vendor/tesseract/tesseract.js'
   })
-  clipboard = new Clipboard('#copy')
+  clipboard = new Clipboard('#copy', {
+    target: (trigger) ->
+      return $('#results .show .card-body').get(0)
+  })
   clipboard.on 'success', (e) ->
     $('#copy').tooltip('show')
     setTimeout ( -> $('#copy').tooltip('hide') ), 2000

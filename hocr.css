@@ -1,0 +1,23 @@
+span.alternatives del {
+  display: none !important;
+}
+
+span.alternatives ins {
+  text-decoration: none !important;
+}
+
+span.ocr_word:first-of-type {
+    margin-left:0;
+}
+
+span.ocr_word:last-of-type {
+    margin-right:0;
+}
+
+span.ocr_line {
+    display: block;
+}
+
+span.ocr_line + br {
+    display: none;
+}

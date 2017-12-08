@@ -6,23 +6,24 @@
         <title>Antigrapheus - Online OCR for Ancient Greek and Latin</title>
         <meta name="description" content="Online OCR for Ancient Greek and Latin">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="hocr.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <style>
-					.progress {
-						position: relative;
-					}
-					.progress-bar-title {
-						position: absolute;
-						text-align: center;
-						text-transform: capitalize;
-						/* line-height: 4em;  line-height should be equal to bar height */
-						color: #fff;
-						mix-blend-mode: color-dodge;
-						right: 0;
-						left: 0;
-						top: .5em;
-						overflow: hidden;
-					}
+          .progress {
+            position: relative;
+          }
+          .progress-bar-title {
+            position: absolute;
+            text-align: center;
+            text-transform: capitalize;
+            /* line-height: 4em;  line-height should be equal to bar height */
+            color: #fff;
+            mix-blend-mode: color-dodge;
+            right: 0;
+            left: 0;
+            top: .5em;
+            overflow: hidden;
+          }
         </style>
     </head>
     <body>
@@ -60,10 +61,38 @@
                 <div id="progresstext" class="progress-bar-title h5"></div>
             </div>
             <br/>
-            <button type="button" class="btn-lg btn-outline-secondary btn-block disabled" data-clipboard-target="#results" id="copy" disabled data-trigger="manual" data-placement="bottom" data-toggle="tooltip" title="Copied!">Copy to clipboard</button>
+            <button type="button" class="btn-lg btn-outline-secondary btn-block disabled" id="copy" disabled data-trigger="manual" data-placement="bottom" data-toggle="tooltip" title="Copied!">Copy to clipboard</button>
           </div>
           <br/>
-          <div class="container" id="results">
+          <div class="container invisible" id="results" role="tablist">
+            <div class="card">
+              <div class="card-header" role="tab" id="headingOne">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Rich Text
+                  </a>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#results">
+                <div class="card-body" id="richtext">
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" role="tab" id="headingTwo">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Plain Text
+                  </a>
+                </h5>
+              </div>
+
+              <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#results">
+                <div class="card-body" id="plaintext">
+                </div>
+              </div>
+            </div>
           </div>
         </main>
 
