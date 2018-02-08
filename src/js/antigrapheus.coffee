@@ -23,8 +23,8 @@ process = ->
     .then((result) ->
       console.log(result)
       $('#progresstext').text('Done!')
-      $('#richtext').empty().append(result.html)
-      $('#plaintext').empty().append($('<p>').text(result.text))
+      $('#richtext').empty().append(result.html.normalize('NFC'))
+      $('#plaintext').empty().append($('<p>').text(result.text.normalize('NFC')))
       $('#results').removeClass('invisible')
       if $('#copy').prop('disabled')
         $('#copy').toggleClass('disabled').toggleClass('btn-outline-secondary').toggleClass('btn-outline-primary').prop('disabled',false)
